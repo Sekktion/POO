@@ -14,7 +14,7 @@ public class JogoDaForca {
     public static void main(String[] args) {
         
         JogoDaForca teste = new JogoDaForca();
-        teste.setPalavra("marmita");
+        teste.setPalavra("universidade");
         teste.setPalavra("computador");
         teste.setPalavra("arvore");
         teste.setPalavra("porta");
@@ -61,7 +61,7 @@ public class JogoDaForca {
             rep=1;
             jogou=0;
             System.out.println("==========================================");
-            System.out.println("             Rodada " + num + "                  ");
+            System.out.println("              Rodada " + num + "                  ");
             System.out.println("Letras ja usadas: ");
             for(i=0;i<26;i++){
                 System.out.print(letrasEsc[i]+" ");
@@ -81,13 +81,12 @@ public class JogoDaForca {
                 if(rep == 1 && strConvert.equals(palavraSortConv[i])){
                     incognitas[i] = strConvert;
                     acertos++;
-                    jogou = 1;
-                }
-                if((rep == 1) && (jogou == 0)){
-                    erros++;
-                    jogou = 1;
+                    jogou=1;
                 }
             }
+            if(rep == 1 && jogou == 0){
+                    erros++;
+                }
             for(i=0;i<26;i++){
                if(rep == 1 && " ".equals(letrasEsc[i])){
                     letrasEsc[i] = strConvert;
@@ -103,5 +102,22 @@ public class JogoDaForca {
             System.out.println("Erros: "+erros);
             num++;
         }
+        if(acertos == length){
+            System.out.println("=======================================");
+            System.out.println("|              PARABÉNS               |");
+            System.out.println("=======================================");
+            System.out.println("A palavra era: "+palavraSort);
+            System.out.println("Total de erros: "+erros);
+            System.out.println("Total de tentativas: "+num);
+        }
+        if(erros == ((length/2) +1)){
+            System.out.println("=======================================");
+            System.out.println("|            GAME OVER                |");
+            System.out.println("=======================================");
+            System.out.println("A palavra era: "+palavraSort);
+            System.out.println("Total de erros: "+erros);
+            System.out.println("Total de tentativas: "+num);
+        }
+        System.out.println("Me da 10 professor, nunca te pedi nada <3");
     }
 }
